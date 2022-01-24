@@ -1,5 +1,3 @@
-import sanitizeHtml from "sanitize-html";
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
@@ -18,7 +16,7 @@ app.get("/api/hello", (req, res) => {
 
 app.post("/api/world", (req, res) => {
   console.log(req.body);
-  res.send("You sent:" + sanitizeHtml(req.body.post));
+  res.send("You sent:" + req.body.post);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
